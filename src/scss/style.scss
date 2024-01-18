@@ -1,5 +1,9 @@
+.body{
+    width: 1440px;
+}
 .header,
-.main{
+.main,
+.footer{
     display: flex;
     justify-content: center;
 }
