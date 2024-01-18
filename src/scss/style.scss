@@ -58,13 +58,15 @@
     }
 }
 .slider {
+    margin: auto;
     margin-top: 116px;
     .slider__main-block {
         width: 1120px;
         height: 702px;
         .slider__block-slids {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 5s linear;
+            overflow: hidden;
             .slider__block-slids-slid {
                 width: 100%;
                 height: 100%;

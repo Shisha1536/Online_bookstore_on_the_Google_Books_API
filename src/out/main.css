@@ -63,6 +63,7 @@
 }
 
 .slider {
+  margin: auto;
   margin-top: 116px;
 }
 .slider .slider__main-block {
@@ -71,7 +72,8 @@
 }
 .slider .slider__main-block .slider__block-slids {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 5s linear;
+  overflow: hidden;
 }
 .slider .slider__main-block .slider__block-slids .slider__block-slids-slid {
   width: 100%;
