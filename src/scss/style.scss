@@ -1,6 +1,5 @@
 .header,
-.main,
-.footer{
+.main {
     display: flex;
     width: 1440px;
     margin: auto;
@@ -34,6 +33,7 @@
             font-size: 10px;
             font-weight: 900;
             text-transform: uppercase;
+            cursor: pointer;
         }
     }
     .header__function {
@@ -158,5 +158,30 @@
         line-height: normal;
         text-transform: capitalize;
     }
+    .genre-navigation__item2 {
+        text-decoration: none;
+        color: #1C2A39;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: capitalize;
+    }
     
+}
+.books {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 924px;
+    gap: 76px;
+    margin-top: 1000px;
+    margin-left: 356px;
+    .books__item {
+        display: flex;
+        gap: 36;
+        width: 424px;
+        height: 300px;
+    }
 }
