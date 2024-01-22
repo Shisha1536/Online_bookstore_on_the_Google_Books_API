@@ -7,6 +7,7 @@
  * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
  */
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./index.js":
@@ -15,8 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_js_Genres__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/js/Genres */ \"./src/js/Genres.js\");\n/* harmony import */ var _src_js_Genres__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_src_js_Genres__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _src_scss_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src/scss/style.scss */ \"./src/scss/style.scss\");\n\r\n\n\n//# sourceURL=webpack://online_bookstore_on_the_google_books_api/./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src_js_Genres__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/js/Genres */ \"./src/js/Genres.js\");\n/* harmony import */ var _src_js_Request__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src/js/Request */ \"./src/js/Request.js\");\n/* harmony import */ var _src_scss_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./src/scss/style.scss */ \"./src/scss/style.scss\");\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://online_bookstore_on_the_google_books_api/./index.js?");
 
 /***/ }),
 
@@ -26,7 +26,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _src
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://online_bookstore_on_the_google_books_api/./src/scss/style.scss?");
 
 /***/ }),
@@ -35,9 +34,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /*!**************************!*\
   !*** ./src/js/Genres.js ***!
   \**************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("const Genres = document.querySelectorAll('.genre-navigation__item');\r\n\r\nGenres.forEach((elem)=>{\r\n\telem.addEventListener('click',()=>{\r\n        Genres.forEach(element => {\r\n            element.classList = \"\";\r\n            element.classList = \"genre-navigation__item\";\r\n        });\r\n        elem.classList = \"genre-navigation__item2\";\r\n  })\r\n})\n\n//# sourceURL=webpack://online_bookstore_on_the_google_books_api/./src/js/Genres.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst Genres = document.querySelectorAll('.genre-navigation__item');\r\nlet q = \"Architecture\";\r\n\r\nGenres.forEach((elem)=>{\r\n\telem.addEventListener('click',()=>{\r\n        Genres.forEach(element => {\r\n            element.classList = \"\";\r\n            element.classList = \"genre-navigation__item\";\r\n        });\r\n        elem.classList = \"genre-navigation__item2\";\r\n        q = elem.value;\r\n  })\r\n})\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (q);\n\n//# sourceURL=webpack://online_bookstore_on_the_google_books_api/./src/js/Genres.js?");
+
+/***/ }),
+
+/***/ "./src/js/Request.js":
+/*!***************************!*\
+  !*** ./src/js/Request.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Genres_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Genres.js */ \"./src/js/Genres.js\");\n\r\n\r\nconst keyAPI ='AIzaSyDtpNURBxE_hqMVuZES4s-zKoDkjyYRLNk';\r\nlet indexBook = 0;\r\nlet url = `https://www.googleapis.com/books/v1/volumes?q=\"subject:${_Genres_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]}\"&key=${keyAPI}&printType=books&startIndex=${indexBook}&maxResults=6&langRestrict=en`\r\nfetch(url)\r\n  .then((response) => {\r\n    return response.json();\r\n})\n\n//# sourceURL=webpack://online_bookstore_on_the_google_books_api/./src/js/Request.js?");
 
 /***/ })
 
@@ -68,18 +77,6 @@ eval("const Genres = document.querySelectorAll('.genre-navigation__item');\r\n\r
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports

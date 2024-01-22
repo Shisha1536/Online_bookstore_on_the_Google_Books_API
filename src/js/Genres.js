@@ -1,4 +1,5 @@
 const Genres = document.querySelectorAll('.genre-navigation__item');
+let q = "Architecture";
 
 Genres.forEach((elem)=>{
 	elem.addEventListener('click',()=>{
@@ -7,5 +8,8 @@ Genres.forEach((elem)=>{
             element.classList = "genre-navigation__item";
         });
         elem.classList = "genre-navigation__item2";
+        q = elem.value;
   })
 })
+
+export default q;
