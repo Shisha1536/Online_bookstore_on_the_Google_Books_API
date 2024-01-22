@@ -187,7 +187,66 @@
 }
 .books .books__item {
   display: flex;
-  gap: 36;
+  gap: 36px;
   width: 424px;
   height: 300px;
+}
+.books .books__item .books__item_img {
+  width: 212px;
+  height: 100%;
+}
+.books .books__item .books__item_block-inf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.books .books__item .books__item_block-inf .block-inf__writer {
+  color: #5C6A79;
+  font-family: "Open Sans";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-bottom: 4px;
+}
+.books .books__item .books__item_block-inf .block-inf__name,
+.books .books__item .books__item_block-inf .block-inf__price {
+  margin-bottom: 4px;
+  color: #1C2A39;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.books .books__item .books__item_block-inf .block-inf__rating,
+.books .books__item .books__item_block-inf .block-inf__whereof {
+  margin-bottom: 16px;
+  color: #5C6A79;
+  font-family: "Open Sans";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.books .books__item .books__item_block-inf .block-inf__whereof {
+  text-transform: capitalize;
+}
+.books .books__item .books__item_block-inf .block-inf__price {
+  margin-bottom: 16px;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.books .books__item .books__item_block-inf .block-inf__bnt {
+  width: 176px;
+  height: 45px;
+  border: 1px solid #4C3DB2;
+  color: #4C3DB2;
+  font-family: Montserrat;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
 }
