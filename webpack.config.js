@@ -7,7 +7,7 @@ module.exports = {
         path: path.resolve(__dirname, 'src/out'),
         filename: 'main.js'
     },
-    mode: 'development',
+    mode: 'none',
     plugins: [new MiniCssExtractPlugin()],
     module: {
         rules: [
@@ -15,6 +15,7 @@ module.exports = {
             test: /\.scss$/i,
             use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
           },
+          { test: /\.(js)$/, use: 'babel-loader' }
         ],
     },
 }
