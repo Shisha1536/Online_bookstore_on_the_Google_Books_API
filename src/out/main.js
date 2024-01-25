@@ -28,22 +28,30 @@ Genres.forEach(elem => {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony import */ var _Genres_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _FormationStructure_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 
+
+const books = document.getElementsByClassName('books');
 const keyAPI = 'AIzaSyDtpNURBxE_hqMVuZES4s-zKoDkjyYRLNk';
 let indexBook = 0;
 let url = `https://www.googleapis.com/books/v1/volumes?q="subject:${_Genres_js__WEBPACK_IMPORTED_MODULE_0__["default"]}"&key=${keyAPI}&printType=books&startIndex=${indexBook}&maxResults=6&langRestrict=en`;
-async function getMainActorProfileFromMovie() {
+async function requestingData() {
   try {
     const bookResponse = await fetch(url);
     const booksAPI = await bookResponse.json();
     let arrayBooks = booksAPI.items;
     debugger;
+    let B = (0,_FormationStructure_js__WEBPACK_IMPORTED_MODULE_1__.buildingStructure)(arrayBooks);
   } catch (err) {
     console.error('Произошла ошибка!', err);
   }
 }
-getMainActorProfileFromMovie();
+requestingData();
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (requestingData());
 
 /***/ }),
 /* 3 */
@@ -52,6 +60,30 @@ getMainActorProfileFromMovie();
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+/* 4 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function buildingStructure(arrayData) {
+  //arrayData.forEach(element => {
+  //    let booksItem = document.createElement('div');
+  //    let booksItemImg = document.createElement('img');
+  //    let booksItemBlock = document.createElement('div');
+  //    let blockInfWriter = document.createElement('p');
+  //    let blockInfName = document.createElement('h3');
+  //    let blockInfWhereof = document.createElement('p');
+  //    let blockInfPrice = document.createElement('p');
+  //    let blockInfBnt = document.createElement('button');
+  //
+  //
+  //});
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (buildingStructure());
 
 /***/ })
 /******/ 	]);
