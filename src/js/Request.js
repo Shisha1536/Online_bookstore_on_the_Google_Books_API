@@ -26,4 +26,4 @@ function requestingData() {
   })
 }
 requestingData()
-export default requestingData();
+//export default requestingData();

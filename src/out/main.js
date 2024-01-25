@@ -28,9 +28,6 @@ Genres.forEach(elem => {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _Genres_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _FormationStructure_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 
@@ -47,16 +44,17 @@ let url = `https://www.googleapis.com/books/v1/volumes?q="subject:${_Genres_js__
 //let B = buildingStructure(arrayBooks);
 function requestingData() {
   fetch(url).then(response => response.json()).then(data => {
-    //debugger;
+    debugger;
     let arrayBooks = data.items;
     arrayBooks.forEach(element => {
-      debugger
       console.log(element);
     });
-  })
+  }).catch(err => {
+    console.log(err);
+  });
 }
 requestingData();
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (requestingData());
+//export default requestingData();
 
 /***/ }),
 /* 3 */
