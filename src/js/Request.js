@@ -6,19 +6,24 @@ const keyAPI ='AIzaSyDtpNURBxE_hqMVuZES4s-zKoDkjyYRLNk';
 let indexBook = 0;
 let url = `https://www.googleapis.com/books/v1/volumes?q="subject:${genres}"&key=${keyAPI}&printType=books&startIndex=${indexBook}&maxResults=6&langRestrict=en`
 
+//const bookResponse = fetch(url)
+//const booksAPI =  bookResponse.json();
+//let arrayBooks = booksAPI.items;
 
-async function requestingData() {
-  try {
-    const bookResponse = await fetch(url);
-    const booksAPI = await bookResponse.json();
-    let arrayBooks = booksAPI.items;
+//let B = buildingStructure(arrayBooks);
+function requestingData() {
+  fetch(url)
+  .then((response) => response.json())
+  .then((data) => {
     debugger
-    let B = buildingStructure(arrayBooks);
-  } catch (err) {
-    console.error('Произошла ошибка!', err);
-  }
+    let arrayBooks = data.items;
+    arrayBooks.forEach(element => {
+      console.log(element);
+    });
+  })
+  .catch((err) => {
+    console.log(err)
+  })
 }
-
-requestingData();
-
+requestingData()
 export default requestingData();
