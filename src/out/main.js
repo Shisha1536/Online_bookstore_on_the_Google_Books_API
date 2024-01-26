@@ -15,11 +15,13 @@ __webpack_require__.r(__webpack_exports__);
 
 const keyAPI = 'AIzaSyDtpNURBxE_hqMVuZES4s-zKoDkjyYRLNk';
 let indexBook = 0;
-let url = `https://www.googleapis.com/books/v1/volumes?q="subject:${_Genres_js__WEBPACK_IMPORTED_MODULE_0__["default"]}"&key=${keyAPI}&printType=books&startIndex=${indexBook}&maxResults=6&langRestrict=en`;
+let url = `https://www.googleapis.com/books/v1/volumes?q="subject:${_Genres_js__WEBPACK_IMPORTED_MODULE_0__.q.data}"&key=${keyAPI}&printType=books&startIndex=${indexBook}&maxResults=6&langRestrict=en`;
 function requestingData() {
   fetch(url).then(response => response.json()).then(data => {
     let arrayBooks = data.items;
     (0,_FormationStructure_js__WEBPACK_IMPORTED_MODULE_1__.buildingStructure)(arrayBooks);
+    url = `https://www.googleapis.com/books/v1/volumes?q="subject:${_Genres_js__WEBPACK_IMPORTED_MODULE_0__.q.data}"&key=${keyAPI}&printType=books&startIndex=${indexBook += 6}&maxResults=6&langRestrict=en`;
+    debugger;
   }).catch(err => {
     console.log(err);
   });
@@ -32,10 +34,12 @@ requestingData();
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   q: () => (/* binding */ q)
 /* harmony export */ });
 const Genres = document.querySelectorAll('.genre-navigation__item');
-let q = "Architecture";
+let q = {
+  data: "Architecture"
+};
 Genres.forEach(elem => {
   elem.addEventListener('click', () => {
     Genres.forEach(element => {
@@ -43,10 +47,10 @@ Genres.forEach(elem => {
       element.classList = "genre-navigation__item";
     });
     elem.classList = "genre-navigation__item2";
-    q = elem.value;
+    debugger;
+    q.data = elem.textContent;
   });
 });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (q);
 
 /***/ }),
 /* 3 */
@@ -113,6 +117,24 @@ __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
+/***/ }),
+/* 5 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+
+const btnLoadMore = document.querySelector('.loading-animation-block__Btn');
+const loadingAnimation = document.querySelector('.loading-animation-block__loader');
+btnLoadMore.addEventListener('click', () => {
+  btnLoadMore.style.display = 'none';
+  loadingAnimation.style.display = 'inline-block';
+  debugger;
+  (0,_Request__WEBPACK_IMPORTED_MODULE_0__.requestingData)();
+  btnLoadMore.style.display = 'block';
+  loadingAnimation.style.display = 'none';
+});
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -174,9 +196,8 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _src_js_Request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _src_js_LoadMore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var _src_scss_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
-//import "./src/js/Genres"
 
 
 })();

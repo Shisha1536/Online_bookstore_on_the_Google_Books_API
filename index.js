@@ -1,4 +1,3 @@
-//import "./src/js/Genres"
-import "./src/js/Request"
+import "./src/js/LoadMore"
 
 import "./src/scss/style.scss"
