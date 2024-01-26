@@ -104,7 +104,6 @@ function buildingStructure(arrayData) {
     booksItemBlockInf.append(blockInfBtn);
     booksItem.append(booksItemImg);
     booksItem.append(booksItemBlockInf);
-    console.log(typeof booksItem);
     books.append(booksItem);
   });
 }
