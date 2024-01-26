@@ -6,6 +6,39 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Genres_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _FormationStructure_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
+
+
+const books = document.getElementsByClassName('books');
+const keyAPI = 'AIzaSyDtpNURBxE_hqMVuZES4s-zKoDkjyYRLNk';
+let indexBook = 0;
+let url = `https://www.googleapis.com/books/v1/volumes?q="subject:${_Genres_js__WEBPACK_IMPORTED_MODULE_0__["default"]}"&key=${keyAPI}&printType=books&startIndex=${indexBook}&maxResults=6&langRestrict=en`;
+
+//const bookResponse = fetch(url)
+//const booksAPI =  bookResponse.json();
+//let arrayBooks = booksAPI.items;
+
+//let B = buildingStructure(arrayBooks);
+function requestingData() {
+  fetch(url).then(response => response.json()).then(data => {
+    //debugger
+    let arrayBooks = data.items;
+    arrayBooks.forEach(element => {
+      console.log(element);
+    });
+  }).catch(err => {
+    console.log(err);
+  });
+}
+requestingData();
+//export default requestingData();
+
+/***/ }),
+/* 2 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
@@ -22,39 +55,6 @@ Genres.forEach(elem => {
   });
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (q);
-
-/***/ }),
-/* 2 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Genres_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _FormationStructure_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
-
-
-const books = document.getElementsByClassName('books');
-const keyAPI = 'AIzaSyDtpNURBxE_hqMVuZES4s-zKoDkjyYRLNk';
-let indexBook = 0;
-let url = `https://www.googleapis.com/books/v1/volumes?q="subject:${_Genres_js__WEBPACK_IMPORTED_MODULE_0__["default"]}"&key=${keyAPI}&printType=books&startIndex=${indexBook}&maxResults=6&langRestrict=en`;
-
-//const bookResponse = fetch(url)
-//const booksAPI =  bookResponse.json();
-//let arrayBooks = booksAPI.items;
-
-//let B = buildingStructure(arrayBooks);
-function requestingData() {
-  fetch(url).then(response => response.json()).then(data => {
-    debugger;
-    let arrayBooks = data.items;
-    arrayBooks.forEach(element => {
-      console.log(element);
-    });
-  }).catch(err => {
-    console.log(err);
-  });
-}
-requestingData();
-//export default requestingData();
 
 /***/ }),
 /* 3 */
@@ -149,7 +149,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _src_js_Request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _src_js_Request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 /* harmony import */ var _src_scss_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 //import "./src/js/Genres"
 
