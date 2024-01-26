@@ -1,8 +1,19 @@
 .header,
-.main {
+.main,
+.footer {
   display: flex;
   width: 1440px;
   margin: auto;
+}
+
+.main {
+  flex-direction: column;
+}
+
+.footer {
+  justify-content: center;
+  padding-top: 84px;
+  margin-bottom: 74px;
 }
 
 .header {
@@ -140,6 +151,10 @@
   width: 69px;
 }
 
+.block-nav-books {
+  display: flex;
+}
+
 .genre-navigation {
   display: flex;
   flex-direction: column;
@@ -148,9 +163,10 @@
   width: 416px;
   height: 710px;
   background: #EFEEF6;
-  margin-top: 955px;
-  position: absolute;
+  margin-top: 134px;
   gap: 23px;
+  z-index: 1;
+  position: absolute;
 }
 .genre-navigation .genre-navigation__item {
   text-decoration: none;
@@ -174,13 +190,13 @@
 }
 
 .books {
-  position: absolute;
   display: flex;
   flex-wrap: wrap;
   width: 924px;
   gap: 76px;
-  margin-top: 1000px;
+  margin-top: 159px;
   margin-left: 356px;
+  z-index: 2;
 }
 .books .books__item {
   display: flex;
@@ -228,6 +244,11 @@
   line-height: normal;
 }
 .books .books__item .books__item_block-inf .block-inf__whereof {
+  height: 35px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   text-transform: capitalize;
 }
 .books .books__item .books__item_block-inf .block-inf__price {
@@ -235,7 +256,7 @@
   font-size: 13px;
   text-transform: uppercase;
 }
-.books .books__item .books__item_block-inf .block-inf__bnt {
+.books .books__item .books__item_block-inf .block-inf__btn {
   width: 176px;
   height: 45px;
   border: 1px solid #4C3DB2;
@@ -246,4 +267,40 @@
   font-weight: 700;
   line-height: normal;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.loading-animation-block {
+  position: absolute;
+}
+.loading-animation-block .loading-animation-block__Btn {
+  cursor: pointer;
+  width: 176px;
+  height: 45px;
+  border: 1px solid #4C3DB2;
+  color: #4C3DB2;
+  font-family: Montserrat;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+.loading-animation-block .loading-animation-block__loader {
+  width: 45px;
+  height: 45px;
+  border: 5px dotted #4C3DB2;
+  border-radius: 50%;
+  display: none;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

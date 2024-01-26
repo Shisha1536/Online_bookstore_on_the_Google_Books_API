@@ -13,19 +13,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _FormationStructure_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 
 
-const books = document.getElementsByClassName('books');
 const keyAPI = 'AIzaSyDtpNURBxE_hqMVuZES4s-zKoDkjyYRLNk';
 let indexBook = 0;
 let url = `https://www.googleapis.com/books/v1/volumes?q="subject:${_Genres_js__WEBPACK_IMPORTED_MODULE_0__["default"]}"&key=${keyAPI}&printType=books&startIndex=${indexBook}&maxResults=6&langRestrict=en`;
 function requestingData() {
   fetch(url).then(response => response.json()).then(data => {
-    //debugger
     let arrayBooks = data.items;
-    let B = (0,_FormationStructure_js__WEBPACK_IMPORTED_MODULE_1__.buildingStructure)(arrayBooks);
-    // arrayBooks.forEach(element => {
-    //  console.log(element);
-    //  buildingStructure();
-    //});
+    (0,_FormationStructure_js__WEBPACK_IMPORTED_MODULE_1__.buildingStructure)(arrayBooks);
   }).catch(err => {
     console.log(err);
   });
@@ -62,22 +56,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   buildingStructure: () => (/* binding */ buildingStructure)
 /* harmony export */ });
-function buildingStructure(arrayBooks) {
-  let readyMadeStructure = [];
+//import { requestingData } from "./Request";
+function buildingStructure(arrayData) {
+  let books = document.querySelector('.books');
   arrayData.forEach(element => {
+    let img = element.volumeInfo.imageLinks.smallThumbnail;
+    let writer = element.volumeInfo.publisher;
+    let name = element.volumeInfo.title;
+    let whereof = element.volumeInfo.description;
+    let price;
+    if (element.saleInfo.isEbook == true) {
+      price = `${element.saleInfo.listPrice.amount} ${element.saleInfo.listPrice.currencyCode}`;
+    } else {
+      price = "";
+    }
+    const btn = 'buy now';
     let booksItem = document.createElement('div');
     let booksItemImg = document.createElement('img');
-    let booksItemBlock = document.createElement('div');
+    let booksItemBlockInf = document.createElement('div');
     let blockInfWriter = document.createElement('p');
     let blockInfName = document.createElement('h3');
     let blockInfWhereof = document.createElement('p');
     let blockInfPrice = document.createElement('p');
-    let blockInfBnt = document.createElement('button');
+    let blockInfBtn = document.createElement('button');
     booksItem.classList = 'books__item';
     booksItemImg.classList = 'books__item_img';
-    booksItemBlock.classList = 'books__item_block-inf';
+    booksItemBlockInf.classList = 'books__item_block-inf';
     blockInfWriter.classList = 'block-inf__writer';
     blockInfName.classList = 'block-inf__name';
+    blockInfWhereof.classList = 'block-inf__whereof';
+    blockInfPrice.classList = 'block-inf__price';
+    blockInfBtn.classList = 'block-inf__btn';
+    booksItemImg.src = img;
+    blockInfWriter.textContent = writer;
+    blockInfName.textContent = name;
+    blockInfWhereof.textContent = whereof;
+    blockInfPrice.textContent = price;
+    blockInfBtn.textContent = btn;
+    booksItemBlockInf.append(blockInfWriter);
+    booksItemBlockInf.append(blockInfName);
+    booksItemBlockInf.append(blockInfWhereof);
+    booksItemBlockInf.append(blockInfPrice);
+    booksItemBlockInf.append(blockInfBtn);
+    booksItem.append(booksItemImg);
+    booksItem.append(booksItemBlockInf);
+    console.log(typeof booksItem);
+    books.append(booksItem);
   });
 }
 
