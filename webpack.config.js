@@ -7,15 +7,15 @@ module.exports = {
         path: path.resolve(__dirname, 'src/out'),
         filename: 'main.js'
     },
-    mode: 'none',
+    mode: 'production',
     plugins: [new MiniCssExtractPlugin()],
     module: {
         rules: [
           {
             test: /\.scss$/i,
-            use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+            use: [MiniCssExtractPlugin.loader, "css-loader", 'postcss-loader', "sass-loader"],
           },
           { test: /\.(js)$/, use: 'babel-loader' }
         ],
-    },
+    }
 }

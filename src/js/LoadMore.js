@@ -5,7 +5,6 @@ const loadingAnimation = document.querySelector('.loading-animation-block__loade
 btnLoadMore.addEventListener('click', () =>{
     btnLoadMore.style.display = 'none';
     loadingAnimation.style.display = 'inline-block';
-    debugger
     requestingData();
     btnLoadMore.style.display = 'block';
     loadingAnimation.style.display = 'none';

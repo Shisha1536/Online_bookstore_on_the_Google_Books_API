@@ -12,7 +12,6 @@ export function requestingData() {
     let arrayBooks = data.items;
     buildingStructure(arrayBooks);
     url = `https://www.googleapis.com/books/v1/volumes?q="subject:${genres.data}"&key=${keyAPI}&printType=books&startIndex=${indexBook +=6}&maxResults=6&langRestrict=en`;
-    debugger
   })
   .catch((err) => {
     console.log(err)

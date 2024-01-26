@@ -1,4 +1,4 @@
-//import { requestingData } from "./Request";
+import { buyNow } from "./BuyNow";
 export function buildingStructure(arrayData) {
     let books = document.querySelector('.books');
     arrayData.forEach(element => {
@@ -38,6 +38,10 @@ export function buildingStructure(arrayData) {
         blockInfWhereof.textContent = whereof;
         blockInfPrice.textContent = price;
         blockInfBtn.textContent = btn;
+
+        blockInfBtn.addEventListener('click', () => {
+            buyNow(blockInfBtn);
+        });
 
         booksItemBlockInf.append(blockInfWriter);
         booksItemBlockInf.append(blockInfName);

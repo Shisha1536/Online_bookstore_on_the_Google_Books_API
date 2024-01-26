@@ -8,7 +8,6 @@ Genres.forEach((elem)=>{
             element.classList = "genre-navigation__item";
         });
         elem.classList = "genre-navigation__item2";
-        debugger
         q.data = elem.textContent;
   })
 })
